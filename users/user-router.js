@@ -48,7 +48,12 @@ router.post('api/login', async (req, res, next) => {
         }
 
         //Generate a new JSON Web Token
+        const token = jwt.sign({
+			userID: user.id,
+		}, "Secret string")
+
         //Send the token back as a cookie
+        res.cookie("token", token)
 
         res.json({
             message: `Welcome ${user.username}`
