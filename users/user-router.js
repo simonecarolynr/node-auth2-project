@@ -6,7 +6,7 @@ const restrict = require("../middleware/restrict")
 
 const router = express.Router()
 
-router.post('api/register', async (req, res, next) => {
+router.post('/api/register', async (req, res, next) => {
     try {
         const { username, password } = req.body
         const user = await Users.findBy({ username }).first()
@@ -28,7 +28,7 @@ router.post('api/register', async (req, res, next) => {
     }
 })
 
-router.post('api/login', async (req, res, next) => {
+router.post('/api/login', async (req, res, next) => {
     try {
         const { username, password } = req.body
         const user = await Users.findBy({username}).first()
@@ -63,7 +63,7 @@ router.post('api/login', async (req, res, next) => {
     }
 })
 
-router.get('api/users', restrict(), async (req, res, next) => {
+router.get('/api/users', restrict(), async (req, res, next) => {
     try {
         res.json(await Users.find())
     } catch (err) {

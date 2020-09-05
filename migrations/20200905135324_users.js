@@ -5,7 +5,7 @@ exports.up = function(knex) {
       tbl.increments('id')
       tbl.text('username').unique().notNull()
       tbl.text('password').notNull()
-      tbl.text('department').notNull()
+      tbl.text('department')
   })
 };
 
