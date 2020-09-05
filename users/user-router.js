@@ -2,7 +2,7 @@ const express = require("express")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 const Users = require("./users-model")
-// const restrict = require("../middleware/restrict")
+const restrict = require("../middleware/restrict")
 
 const router = express.Router()
 
@@ -58,7 +58,7 @@ router.post('api/login', async (req, res, next) => {
     }
 })
 
-router.get('api/users', async (req, res, next) => {
+router.get('api/users', restrict(), async (req, res, next) => {
     try {
         res.json(await Users.find())
     } catch (err) {
