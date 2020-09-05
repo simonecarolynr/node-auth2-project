@@ -5,10 +5,10 @@ module.exports = {
   development: {
     client: 'sqlite3',
     connection: {
-      filename: './dev.sqlite3'
+      filename: './database/users.sqlite3'
     }
   },
-  
+
   useNullAsDefault: true,
 
   staging: {
@@ -21,9 +21,6 @@ module.exports = {
     pool: {
       min: 2,
       max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
     }
   },
 
